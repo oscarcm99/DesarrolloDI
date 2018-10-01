@@ -1,0 +1,58 @@
+package practica1;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class guijava {
+
+	private JFrame frmPractica;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					guijava window = new guijava();
+					window.frmPractica.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public guijava() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmPractica = new JFrame();
+		frmPractica.setTitle("REGISTRO NETFLIX");
+		frmPractica.setBounds(100, 100, 600, 596);
+		frmPractica.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmPractica.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Nombre");
+		lblNewLabel.setBounds(44, 43, 58, 31);
+		frmPractica.getContentPane().add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setBounds(112, 48, 150, 20);
+		frmPractica.getContentPane().add(textField);
+		textField.setColumns(10);
+	}
+
+}
