@@ -1,0 +1,46 @@
+package logIn;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
+
+public class guijava1 {
+
+	private JFrame frmHospitalGeneralDe;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					guijava1 window = new guijava1();
+					window.frmHospitalGeneralDe.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public guijava1() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmHospitalGeneralDe = new JFrame();
+		frmHospitalGeneralDe.setTitle("Hospital general de monesterio\r\n");
+		frmHospitalGeneralDe.setBounds(100, 100, 499, 543);
+		frmHospitalGeneralDe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmHospitalGeneralDe.getContentPane().setLayout(null);
+	}
+
+}
