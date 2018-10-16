@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600">
+	<fx:Declarations>
+		<s:RadioButtonGroup id="radiogroup1"/>
+		<s:RadioButtonGroup id="radiogroup2"/>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Label x="617" y="90" width="66" height="22" text="Nombre"/>
+	<s:TextInput x="746" y="82" width="166"/>
+	<s:Label x="617" y="137" text="Apellidos&#xd;"/>
+	<s:TextInput x="746" y="127" width="166"/>
+	<s:Label x="617" y="180" text="Fecha de nacimiento&#xd;"/>
+	<mx:DateField x="746" y="169" width="144"/>
+	<s:Label x="617" y="222" text="Nº telefono&#xd;"/>
+	<s:TextInput x="746" y="212" width="166"/>
+	<s:Label x="651" y="271" height="9" text="Sexo&#xd;"/>
+	<s:CheckBox x="617" y="351" label="Familia numerosa"/>
+	<s:CheckBox x="797" y="351" label="Carne joven"/>
+	<s:Label x="617" y="437" text="Situacion laboral"/>
+	<s:ComboBox x="782" y="426"/>
+	<s:Button x="782" y="557" label="Aceptar"/>
+	<s:Button x="888" y="557" label="Salir"/>
+	<s:VGroup x="746" y="261">
+	</s:VGroup>
+	<s:VGroup x="746" y="262">
+		<s:RadioButton label="Hombre" groupName="radiogroup2"/>
+	</s:VGroup>
+	<s:RadioButton x="837" y="262" label="Mujer" groupName="radiogroup2"/>
+</s:Application>
