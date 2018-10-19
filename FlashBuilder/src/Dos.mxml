@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   minWidth="955" minHeight="600" textAlign="center">
+	<fx:Style source="Dos.css"/>
+	<fx:Declarations>
+		<s:RadioButtonGroup id="radiogroup1"/>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Button id="Aceptar" x="115" y="44" width="90" height="34" label="Aceptar" enabled="true"/>
+	<s:TextInput id="TextoContenido" x="310" y="44" width="148" height="34" displayAsPassword="true"
+				 maxChars="8" prompt="Pon nombre"/>
+	<s:TextArea id="area" x="115" y="106" width="343" textAlign="center"/>
+	<s:CheckBox id="trik" x="516" y="44" height="34" label="Acepto los terminos" selected="false"/>
+	<s:ComboBox id="seleccion" x="516" y="106">
+	<s:ArrayList>
+		<fx:String>Agustin</fx:String>
+		<fx:String>Damian</fx:String>
+		<fx:String>Alfredo</fx:String>
+		<fx:String>Daniel</fx:String>
+	</s:ArrayList>
+	</s:ComboBox>
+	<s:VGroup x="516" y="156">
+		<s:RadioButton label="Hola" groupName="radiogroup1"/>
+		<s:RadioButton label="Adios" groupName="radiogroup1"/>
+	</s:VGroup>
+	<mx:DateChooser x="723" y="55"/>
+	<mx:DateField x="521" y="236" width="147" formatString="&quot;DD/MM/YYYY&quot;"/>
+	<s:Image x="115" y="314" width="894" height="304" scaleMode="zoom" source="assets/ubuntu5.PNG"/>
+</s:Application>
