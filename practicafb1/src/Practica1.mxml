@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   width="1022" height="766" minWidth="955" minHeight="600" backgroundColor="#F3A28F">
+	
+	<fx:Script>
+		<![CDATA[
+			import spark.events.TextOperationEvent;
+			protected function tarjeta_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				if(tarjeta.selected){
+					numeroTarjeta.enabled = true;
+					fechaCaducidad.enabled =  true;
+					ccv.enabled = true;
+				}
+			}
+			
+			protected function efectivo_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				if(efectivo.selected) {
+					recogida.enabled = true;
+					numeroTarjeta.enabled = false;
+					fechaCaducidad.enabled =  false;
+					ccv.enabled = false;
+					
+				}
+			}
+			
+		
+			
+			protected function abono_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				if(abono.selected){
+					numeroTarjeta.enabled = false;
+					fechaCaducidad.enabled =  false;
+					ccv.enabled = false;
+					recogida.enabled = false;
+				}
+			}
+			
+			protected function terminos_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				if(terminos.selected == false)
+					realizar.enabled = false;
+				else 
+					realizar.enabled = true;
+			}
+			
+			protected function button1_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				var entrada = 25;
+				var gastos_gestion = 2
+				var conjunto = entrada * cantidad.selectedItem + gastos_gestion
+				total.text = conjunto+"€"
+			}
+			
+			protected function realizar_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				import mx.controls.Alert;
+				Alert.show('Gracias '+nombreTitular.text+' por realizar la compra del partido '+evento.selectedItem+" que ha costado un total de "+total.text, 'Compra realizada', mx.controls.Alert.OK);
+			}
+			
+			protected function cancelar_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				nombreTitular.text = " ";
+				dni.text = " ";
+				tarjeta.selected =  false;
+				efectivo.selected =  false;
+				abono.selected =  false;
+				numeroTarjeta.text =" ";
+				fechaCaducidad.text =" ";
+				ccv.text =" ";
+				recogida.text = " ";
+				cantidad.selectedIndex = 0;
+				total.text =" ";
+				terminos.selected = false;
+				promo.selected = false;
+				
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<s:RadioButtonGroup id="radiogroup1"/>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Image id="granada" x="10" y="25" width="279" height="708" scaleMode="stretch"
+			 source="assets/granada.png"/>
+	<s:Label x="301" y="25" width="612" height="32" fontSize="30" text="COMPRA ENTRADAS GRANADA CF"/>
+	<s:Label x="301" y="120" width="157" height="13" text="TITULAR DE LA COMPRA:"/>
+	<s:TextInput id="nombreTitular" x="484" y="111" width="245"/>
+	<s:Label x="301" y="163" width="147" text="DNI:"/>
+	<s:TextInput id="dni" x="484" y="153"/>
+	<s:Label x="301" y="203" text="FORMA DE PAGO:"/>
+	<s:VGroup x="484" y="197">
+		<s:RadioButton id="tarjeta" label="Tarjeta" click="tarjeta_clickHandler(event)"
+					   groupName="radiogroup1"/>
+	</s:VGroup>
+	<s:RadioButton id="efectivo" x="574" y="196" label="En efectivo"
+				   click="efectivo_clickHandler(event)" groupName="radiogroup1"/>
+	<s:RadioButton id="abono" x="676" y="196" label="Abono" click="abono_clickHandler(event)"
+				   groupName="radiogroup1"/>
+	<s:Label x="301" y="244" width="99" text="Nº TARJETA:"/>
+	<s:TextInput id="numeroTarjeta" x="484" y="234" width="246" enabled="false"/>
+	<s:Label x="301" y="286" width="138" text="FECHA CADUCUIDAD:"/>
+	<s:TextInput id="fechaCaducidad" x="484" y="276" width="86" enabled="false"/>
+	<s:Label x="596" y="286" text="CCV:"/>
+	<s:TextInput id="ccv" x="632" y="276" width="98" enabled="false"/>
+	<s:Label x="301" y="329" text="FECHA RECOGIDA (solo efectivo)"/>
+	<mx:DateField id="recogida" x="540" y="317" width="147" enabled="false"/>
+	<s:Label x="301" y="501" text="CANTIDAD:"/>
+	<s:ComboBox id="cantidad" x="541" y="490">
+		<s:ArrayList>
+			<fx:int>1</fx:int>
+			<fx:int>2</fx:int>
+			<fx:int>3</fx:int>
+			<fx:int>4</fx:int>
+			<fx:int>5</fx:int>
+			<fx:int>6</fx:int>
+		</s:ArrayList>
+	</s:ComboBox>
+	<s:Label x="297" y="541" text="PRECIO TOTAL(IVA incluido):"/>
+	<s:TextInput id="total" x="541" y="531" width="146" editable="false"/>
+	<s:Label x="301" y="367" text="EVENTO:"/>
+	<s:List id="evento" x="545" y="367" width="226" requireSelection="true"
+			scrollSnappingMode="none">
+	<s:ArrayList>
+		<fx:String>Granada CF vs UD Almería</fx:String>
+		<fx:String>Granada CF vs CD Numancia</fx:String>
+		<fx:String>Granada CF vs Real Sporting</fx:String>
+		<fx:String>Granada CF vs Real Oviedo</fx:String>
+		<fx:String>Granada CF vs Albacete Balompie</fx:String>
+	</s:ArrayList>
+	</s:List>
+	<s:Button x="899" y="490" height="23" label="Añadir" click="button1_clickHandler(event)"/>
+	<s:CheckBox id="terminos" x="301" y="602" width="311" label="ACEPTO LOS TÉRMINOS Y CONDICIONES."
+				click="terminos_clickHandler(event)"/>
+	<s:CheckBox id="promo" x="301" y="628" width="323" label="DESEO RECIBIR PROMOCIONES Y CORREOS"/>
+	<s:Button id="realizar" x="301" y="685" width="138" height="48" label="REALIZAR COMPRA"
+			  click="realizar_clickHandler(event)" enabled="false"/>
+	<s:Button id="cancelar" x="715" y="685" width="138" height="48" label="CANCELAR"
+			  click="cancelar_clickHandler(event)"/>
+	<s:Label x="775" y="492" width="101" text="PRECIO = 25€ + 2€ de gestión"/>
+</s:Application>
