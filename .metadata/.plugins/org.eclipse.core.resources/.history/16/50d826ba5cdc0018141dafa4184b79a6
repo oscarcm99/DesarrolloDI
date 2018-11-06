@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600">
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.controls.Alert;
+			import mx.controls.List;
+			protected function anadir_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				private var ac:ArrayCollection
+				ac.addItem(
+				
+			}
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<s:RadioButtonGroup id="radiogroup1"/>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Label x="74" y="34" width="80" height="25" fontSize="20" text="Tutor: "/>
+	<s:TextInput id="tutor" x="149" y="30" width="263" height="25"/>
+	<s:Label x="477" y="34" width="80" height="25" fontSize="20" text="Curso:"/>
+	<s:ComboBox id="curso" x="547" y="30" width="193" height="25">
+		<s:ArrayList>
+			<fx:String>GM</fx:String>
+			<fx:String>GS</fx:String>
+		</s:ArrayList>
+	</s:ComboBox>
+	<s:NumericStepper id="cantidadCC" x="221" y="89" width="63" height="28"/>
+	<s:Button id="anadir" x="310" y="89" width="102" height="27" label="Añadir"
+			  click="anadir_clickHandler(event)"/>
+	<s:Label x="74" y="93" width="120" height="27" fontSize="20" text="Chupachups:"/>
+	<s:List id="listaDatos" x="82" y="176" width="172" height="221"></s:List>
+	<s:List id="listaCurso" x="252" y="176" width="104" height="221"></s:List>
+	<s:List id="listaEuros" x="355" y="176" width="73" height="221"></s:List>
+	<s:Label x="86" y="156" width="168" fontSize="20" text="Datos del tutor:"/>
+	<s:Label x="262" y="156" fontSize="20" text="Curso:"/>
+	<s:Label x="477" y="97" fontSize="20" text="Recaudación:&#xd;"/>
+	<s:TextInput id="recaudacion" x="612" y="94" width="111" editable="true" enabled="true"/>
+	<s:Label x="731" y="97" fontSize="20" text="€"/>
+	<s:CheckBox id="visualizar" x="515" y="150" width="227" label=" Visualizar recaudación"
+				fontSize="20"/>
+	<s:Label x="477" y="211" fontSize="20" text="Recaudación total de:"/>
+	<s:VGroup x="473" y="243" width="199">
+		<s:RadioButton id="todos" label="Todos" fontSize="20" groupName="radiogroup1"/>
+		<s:RadioButton id="gradoMedio" label="Grado Medio" fontSize="20" groupName="radiogroup1"/>
+		<s:RadioButton id="gradoSuperior" label="Grado Superior" fontSize="20"
+					   groupName="radiogroup1"/>
+	</s:VGroup>
+	<s:Button id="eliminar" x="473" y="363" width="125" height="34" label="Eliminar fila"/>
+	<s:Label x="402" y="156" fontSize="20" text="€:"/>
+</s:Application>
